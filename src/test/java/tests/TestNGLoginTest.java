@@ -10,7 +10,7 @@ import test_flow.LoginFlow;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginTestUsingTestNG {
+public class TestNGLoginTest {
 
     @Test
     public void testLogin() {
