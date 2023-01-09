@@ -3,7 +3,8 @@
 <suite name="Regression" >
     <test name="Login" >
         <classes>
-            <class name="tests.TestNGLoginTest" />
+            <class name="tests.TestNGHooks01" />
+            <class name="tests.TestNGHooks02" />
         </classes>
     </test>
 </suite>
