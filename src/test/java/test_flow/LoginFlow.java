@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import models.components.global.BottomNavComponent;
 import models.components.login.LoginFormComponent;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.testng.Assert;
 
 public class LoginFlow extends BaseFlow {
 
@@ -45,21 +46,18 @@ public class LoginFlow extends BaseFlow {
     private void verifyCorrectLoginCreds(LoginFormComponent loginFormComp) {
         String actual = loginFormComp.getLoginSuccessfullyTextSel();
         String expected = "Success";
-        System.out.println("Actual Login Successfully Str: " + actual);
-        System.out.println("Expected Login Successfully Str: " + expected);
+        Assert.assertEquals(actual, expected, "[ERR] Invalid login success str: not match");
     }
 
     private void verifyIncorrectEmail(LoginFormComponent loginFormComp) {
         String actual = loginFormComp.getIncorrectEmailTextSel();
         String expected = "Please enter a valid email address";
-        System.out.println("Actual Invalid Email Str: " + actual);
-        System.out.println("Expected Invalid Email Str: " + expected);
+        Assert.assertEquals(actual, expected, "[ERR] Invalid email str: not match");
     }
 
     private void verifyIncorrectPassword(LoginFormComponent loginFormComp) {
         String actual = loginFormComp.getIncorrectPasswordTextSel();
         String expected = "Please enter at least 8 characters";
-        System.out.println("Actual Invalid Password Str: " + actual);
-        System.out.println("Expected Invalid Text Str: " + expected);
+        Assert.assertEquals(actual, expected, "[ERR] Invalid password str: not match");
     }
 }
