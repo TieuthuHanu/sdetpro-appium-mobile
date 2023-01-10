@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 import platform.Platform;
 import test_flow.LoginFlow;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestNGLoginTestDataProvider {
 
     @Test(dataProvider = "loginCredsData")

@@ -2,7 +2,6 @@ package test_flow;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import models.components.global.BottomNavComponent;
 import models.components.login.LoginFormComponent;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.testng.Assert;
