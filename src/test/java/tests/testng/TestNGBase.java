@@ -1,4 +1,4 @@
-package tests;
+package tests.testng;
 
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;

@@ -1,4 +1,4 @@
-package tests;
+package tests.parallel;
 
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
