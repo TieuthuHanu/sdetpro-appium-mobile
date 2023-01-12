@@ -15,4 +15,8 @@ public class BaseFlow {
     public void goToLoginScreen() {
         new BottomNavComponent(appiumDriver).clickOnLoginIconNav();
     }
+
+    public void goToFormsScreen() {
+        new BottomNavComponent(appiumDriver).clickOnFormsIconNav();
+    }
 }

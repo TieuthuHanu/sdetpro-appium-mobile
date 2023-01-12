@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverFactory implements MobileCapabilityTypeEx {
 
+    private AppiumDriver<MobileElement> appiumDriver;
+
     public static AppiumDriver<MobileElement> getDriver(Platform platform) {
         AppiumDriver<MobileElement> appiumDriver = null;
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -44,5 +46,48 @@ public class DriverFactory implements MobileCapabilityTypeEx {
         appiumDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
         return appiumDriver;
+    }
+
+    public AppiumDriver<MobileElement> getDriver(Platform platform, String udid, String systemPort) {
+        if (appiumDriver == null) {
+            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+            desiredCapabilities.setCapability(PLATFORM_NAME, "Android");
+            desiredCapabilities.setCapability(AUTOMATION_NAME, "uiautomator2");
+            desiredCapabilities.setCapability(UDID, udid);
+            desiredCapabilities.setCapability(APP_PACKAGE, "com.wdiodemoapp");
+            desiredCapabilities.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
+            desiredCapabilities.setCapability(SYSTEM_PORT, systemPort);
+            URL appiumServer = null;
+
+            try {
+                appiumServer = new URL("http://localhost:4723/wd/hub");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (appiumServer == null)
+                throw new RuntimeException("Can't construct the appium server @http://localhost:4723/wd/hub");
+
+            switch (platform) {
+                case ANDROID:
+                    appiumDriver = new AndroidDriver<MobileElement>(appiumServer, desiredCapabilities);
+                    break;
+                case IOS:
+                    appiumDriver = new IOSDriver<MobileElement>(appiumServer, desiredCapabilities);
+                    break;
+            }
+
+            // Implicit wait | Interval time 500ms
+            appiumDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        }
+
+        return appiumDriver;
+    }
+
+    public void quitAppiumDriver() {
+        if (appiumDriver != null) {
+            appiumDriver.quit();
+            appiumDriver = null;
+        }
     }
 }

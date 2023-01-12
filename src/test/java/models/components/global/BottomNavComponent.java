@@ -9,6 +9,7 @@ public class BottomNavComponent {
 
     private final AppiumDriver<MobileElement> appiumDriver;
     private final By loginIconSel = MobileBy.AccessibilityId("Login");
+    private final By formsIconSel = MobileBy.AccessibilityId("Forms");
 
     public BottomNavComponent(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
@@ -16,5 +17,9 @@ public class BottomNavComponent {
 
     public void clickOnLoginIconNav() {
         appiumDriver.findElement(loginIconSel).click();
+    }
+
+    public void clickOnFormsIconNav() {
+        appiumDriver.findElement(formsIconSel).click();
     }
 }
