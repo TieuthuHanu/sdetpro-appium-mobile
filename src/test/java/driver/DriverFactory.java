@@ -58,9 +58,11 @@ public class DriverFactory implements MobileCapabilityTypeEx {
             desiredCapabilities.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
             desiredCapabilities.setCapability(SYSTEM_PORT, systemPort);
             URL appiumServer = null;
+            String targetServer = "http://localhost:4444/wd/hub";
 
             try {
-                appiumServer = new URL("http://localhost:4723/wd/hub");
+//                appiumServer = new URL("http://localhost:4723/wd/hub");
+                appiumServer = new URL(targetServer);
             } catch (Exception e) {
                 e.printStackTrace();
             }

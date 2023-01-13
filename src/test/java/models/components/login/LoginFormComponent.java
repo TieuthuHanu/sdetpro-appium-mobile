@@ -3,6 +3,7 @@ package models.components.login;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class LoginFormComponent {
@@ -19,6 +20,7 @@ public class LoginFormComponent {
         this.appiumDriver = appiumDriver;
     }
 
+    @Step("Input username as {usernameText}")
     public void usernameElem(String usernameText) {
         if (!usernameText.isEmpty())
             appiumDriver.findElement(usernameSel).sendKeys(usernameText);
@@ -28,6 +30,7 @@ public class LoginFormComponent {
         return appiumDriver.findElement(incorrectEmailTextSel).getText();
     }
 
+    @Step("Input password as {passwordText}")
     public void passwordElem(String passwordText) {
         if (!passwordText.isEmpty())
             appiumDriver.findElement(passwordSel).sendKeys(passwordText);
@@ -37,6 +40,7 @@ public class LoginFormComponent {
         return appiumDriver.findElement(incorrectPasswordTextSel).getText();
     }
 
+    @Step("Click on login button")
     public void loginBtnElem() {
         appiumDriver.findElement(loginBtnSel).click();
     }
