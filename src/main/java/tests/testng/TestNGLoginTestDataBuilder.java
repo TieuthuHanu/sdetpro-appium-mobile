@@ -33,7 +33,7 @@ public class TestNGLoginTestDataBuilder {
 
     @DataProvider
     public LoginCred[] loginCredsData() {
-        String filePath = "/src/test/java/test_data/LoginCreds.json";
+        String filePath = "/src/main/java/test_data/LoginCreds.json";
         return DataObjectBuilder.buildDataObject(filePath, LoginCred[].class);
     }
 }

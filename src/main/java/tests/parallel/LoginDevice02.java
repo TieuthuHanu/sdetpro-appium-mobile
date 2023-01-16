@@ -20,7 +20,7 @@ public class LoginDevice02 extends BaseTest {
 
     @DataProvider
     public LoginCred[] loginCredData() {
-        String filePath = "/src/test/java/test_data/LoginCreds.json";
+        String filePath = "/src/main/java/test_data/LoginCreds.json";
         return DataObjectBuilder.buildDataObject(filePath, LoginCred[].class);
     }
 }
