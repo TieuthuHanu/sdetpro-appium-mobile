@@ -1,4 +1,4 @@
-package removefromtests.parallel;
+package remove_from_tests.parallel;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;

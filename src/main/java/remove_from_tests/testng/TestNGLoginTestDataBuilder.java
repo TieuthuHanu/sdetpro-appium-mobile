@@ -1,4 +1,4 @@
-package removefromtests.testng;
+package remove_from_tests.testng;
 
 import driver.DriverFactory;
 import io.appium.java_client.AppiumDriver;

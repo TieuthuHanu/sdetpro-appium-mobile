@@ -1,17 +1,19 @@
-package removefromtests;
+package remove_from_tests.testng;
 
 import driver.DriverFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import org.testng.annotations.Test;
 import platform.Platform;
 import test_flow.LoginFlow;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginTest {
+public class TestNGLoginTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void testLogin() {
         AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
         List<LoginCred> loginCreds = new ArrayList<>();
         loginCreds.add(new LoginCred("micheo@", "12345678"));

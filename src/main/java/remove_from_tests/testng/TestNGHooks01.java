@@ -1,4 +1,4 @@
-package removefromtests.testng;
+package remove_from_tests.testng;
 
 import org.testng.Assert;
 import org.testng.annotations.*;

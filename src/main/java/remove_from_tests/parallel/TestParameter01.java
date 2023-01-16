@@ -1,4 +1,4 @@
-package removefromtests.parallel;
+package remove_from_tests.parallel;
 
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;

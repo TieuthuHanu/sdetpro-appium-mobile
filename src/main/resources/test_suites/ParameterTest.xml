@@ -5,14 +5,14 @@
         <parameter name="udid" value="emulator-5554"/>
         <parameter name="systemPort" value="8300"/>
         <classes>
-            <class name="removefromtests.parallel.TestParameter01" />
+            <class name="remove_from_tests.parallel.TestParameter01" />
         </classes>
     </test>
     <test name="Real Mobile Device" >
         <parameter name="udid" value="LMK500ZPZXWODEEYTC"/>
         <parameter name="systemPort" value="8400"/>
         <classes>
-            <class name="removefromtests.parallel.TestParameter02" />
+            <class name="remove_from_tests.parallel.TestParameter02" />
         </classes>
     </test>
 </suite>
