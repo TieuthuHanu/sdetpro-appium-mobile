@@ -12,4 +12,6 @@ buildNumber.properties
 .idea
 screenshots
 allure-*
+/selenium-grid/
 selenium-grid
+
