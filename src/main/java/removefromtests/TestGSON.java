@@ -1,4 +1,4 @@
-package tests;
+package removefromtests;
 
 import com.google.gson.Gson;
 import test_data.LoginCred;

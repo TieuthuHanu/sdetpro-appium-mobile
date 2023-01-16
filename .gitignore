@@ -13,3 +13,4 @@ buildNumber.properties
 screenshots
 allure-*
 selenium-grid
+test-output
