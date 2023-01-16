@@ -51,7 +51,7 @@ public class DriverFactory implements MobileCapabilityTypeEx {
     public AppiumDriver<MobileElement> getDriver(Platform platform, String udid, String systemPort, String platformVersion) {
         if (appiumDriver == null) {
             URL appiumServer = null;
-            String targetServer = "http://192.168.1.162:4444/wd/hub";
+            String targetServer = "http://address:4444/wd/hub";
 
             try {
 //                appiumServer = new URL("http://localhost:4723/wd/hub");
