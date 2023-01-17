@@ -62,7 +62,7 @@ public class DriverFactory implements MobileCapabilityTypeEx {
                 hubIpAdd = System.getProperty("hub");
             if (hubIpAdd == null)
                 throw new IllegalArgumentException("Please provide hub ip address via env variable [hub]");
-            targetServer = "http://" + hubIpAdd + ":4444/wd/hub";
+            targetServer = hubIpAdd + ":4444/wd/hub";
         }
 
         if (appiumDriver == null) {
