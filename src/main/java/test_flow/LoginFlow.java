@@ -1,7 +1,10 @@
 package test_flow;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.qameta.allure.Step;
 import models.components.login.LoginFormComponent;
 import org.apache.commons.validator.routines.EmailValidator;

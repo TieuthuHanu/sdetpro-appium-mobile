@@ -3,11 +3,12 @@
 <suite name="ParameterTest" parallel="tests" thread-count="10">
     <test name="Authentication 03" >
         <parameter name="platform" value="IOS"/>
-        <parameter name="platformVersion" value="16.2"/>
-        <parameter name="udid" value="iPhone 14"/>
+        <parameter name="platformVersion" value="15.2"/>
+        <parameter name="udid" value="iPhone 13"/>
         <parameter name="systemPort" value="8562"/>
         <classes>
             <class name="tests.FormTest" />
+            <class name="remove_from_tests.parallel.LoginDevice01" />
         </classes>
     </test>
 </suite>

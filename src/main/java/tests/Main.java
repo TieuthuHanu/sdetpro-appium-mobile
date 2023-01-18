@@ -45,7 +45,7 @@ public class Main implements MobileCapabilityTypeEx {
         }
 
         // Devices under test
-        List<String> iPhoneDeviceList = Arrays.asList("iPhone 14", "iPhone 14 Pro Max");
+        List<String> iPhoneDeviceList = Arrays.asList("iPhone 13", "iPhone 12");
         List<String> androidDeviceList = Arrays.asList("emulator-5554", "LMK500ZPZXWODEEYTC");
         List<String> deviceList = platformName.equalsIgnoreCase("ios") ? iPhoneDeviceList : androidDeviceList;
 
@@ -78,7 +78,7 @@ public class Main implements MobileCapabilityTypeEx {
             test.setXmlClasses(xmlClasses);
             test.addParameter(UDID, deviceName);
             test.addParameter(PLATFORM_NAME, platformName);
-            test.addParameter(PLATFORM_VERSION, "16.2");
+            test.addParameter(PLATFORM_VERSION, "15.2");
             test.addParameter(SYSTEM_PORT, String.valueOf(new SecureRandom().nextInt(1000) + 8300));
             allTests.add(test);
         }

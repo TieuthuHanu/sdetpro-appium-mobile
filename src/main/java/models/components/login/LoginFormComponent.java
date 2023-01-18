@@ -12,13 +12,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
+import static io.appium.java_client.MobileBy.AccessibilityId;
+
 public class LoginFormComponent {
 
     private final AppiumDriver<MobileElement> appiumDriver;
-    private final By usernameSel = MobileBy.AccessibilityId("input-email");
-    private final By passwordSel = MobileBy.AccessibilityId("input-password");
-    private final By loginBtnSel = MobileBy.AccessibilityId("button-LOGIN");
-    private final By loginSuccessfullyTextSel = MobileBy.xpath("//*[contains(@text, 'Success')]");
+    private final By usernameSel = AccessibilityId("input-email");
+    private final By passwordSel = AccessibilityId("input-password");
+    private final By loginBtnSel = AccessibilityId("button-LOGIN");
 
     public LoginFormComponent(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
@@ -27,8 +28,11 @@ public class LoginFormComponent {
 
     @Step("Input username as {usernameText}")
     public void usernameElem(String usernameText) {
-        if (!usernameText.isEmpty())
-            appiumDriver.findElement(usernameSel).sendKeys(usernameText);
+        if (!usernameText.isEmpty()) {
+            MobileElement usernameElem = appiumDriver.findElement(usernameSel);
+            usernameElem.clear();
+            usernameElem.sendKeys(usernameText);
+        }
     }
 
     @AndroidFindBy(xpath = "//*[contains(@text, 'Please enter a valid email address')]")
@@ -39,14 +43,21 @@ public class LoginFormComponent {
     @iOSXCUITFindBy(iOSNsPredicate = "label == \"Please enter at least 8 characters\"")
     private MobileElement incorrectPasswordTextSel;
 
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Success')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Success\"")
+    private MobileElement loginSuccessfullyTextSel;
+
     public String getIncorrectEmailTextSel() {
         return incorrectEmailTextSel.getText().trim();
     }
 
     @Step("Input password as {passwordText}")
     public void passwordElem(String passwordText) {
-        if (!passwordText.isEmpty())
-            appiumDriver.findElement(passwordSel).sendKeys(passwordText);
+        if (!passwordText.isEmpty()) {
+            MobileElement passwordElem = appiumDriver.findElement(passwordSel);
+            passwordElem.clear();
+            passwordElem.sendKeys(passwordText);
+        }
     }
 
     public String getIncorrectPasswordTextSel() {
@@ -59,6 +70,6 @@ public class LoginFormComponent {
     }
 
     public String getLoginSuccessfullyTextSel() {
-        return appiumDriver.findElement(loginSuccessfullyTextSel).getText();
+        return loginSuccessfullyTextSel.getText();
     }
 }
