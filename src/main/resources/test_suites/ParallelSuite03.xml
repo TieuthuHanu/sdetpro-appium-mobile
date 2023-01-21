@@ -6,8 +6,8 @@
         <parameter name="udid" value="emulator-5554"/>
         <parameter name="systemPort" value="8300"/>
         <classes>
+            <class name="tests.FormsTest" />
             <class name="remove_from_tests.parallel.LoginDevice01" />
-            <class name="tests.FormTest" />
         </classes>
     </test>
     <test name="Authentication 02" >
@@ -15,7 +15,7 @@
         <parameter name="udid" value="LMK500ZPZXWODEEYTC"/>
         <parameter name="systemPort" value="8400"/>
         <classes>
-            <class name="tests.FormTest" />
+            <class name="tests.FormsTest" />
         </classes>
     </test>
     <test name="Authentication 03" >
@@ -24,7 +24,7 @@
         <parameter name="udid" value="iPhone 13"/>
         <parameter name="systemPort" value="8562"/>
         <classes>
-            <class name="tests.FormTest" />
+            <class name="tests.FormsTest" />
             <class name="remove_from_tests.parallel.LoginDevice01" />
         </classes>
     </test><test name="Authentication 04" >
@@ -33,7 +33,7 @@
         <parameter name="udid" value="iPhone 12"/>
         <parameter name="systemPort" value="8563"/>
         <classes>
-            <class name="tests.FormTest" />
+            <class name="tests.FormsTest" />
         </classes>
     </test>
 </suite>

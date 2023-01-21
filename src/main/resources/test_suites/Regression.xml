@@ -1,9 +1,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Regression" >
-    <test name="Authentication" >
+<suite name="Regression" parallel="tests" thread-count="10">
+    <test name="Emulator 01" >
+        <parameter name="platform" value="ANDROID"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="systemPort" value="8300"/>
         <classes>
-            <class name="tests.LoginTestWithBaseTest" />
+            <class name="tests.WebviewTest" />
         </classes>
     </test>
+    <test name="Simulator 02" >
+    <parameter name="platform" value="IOS"/>
+    <parameter name="platformVersion" value="15.2"/>
+    <parameter name="udid" value="iPhone 12"/>
+    <parameter name="systemPort" value="8563"/>
+    <classes>
+        <class name="tests.WebviewTest" />
+    </classes>
+</test>
 </suite>

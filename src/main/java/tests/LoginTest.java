@@ -7,7 +7,7 @@ import test_data.DataObjectBuilder;
 import test_data.LoginCred;
 import test_flow.LoginFlow;
 
-public class LoginTestWithBaseTest extends BaseTest {
+public class LoginTest extends BaseTest {
 
     @TmsLink("TEST-123")
     @Test(dataProvider = "loginCredData")

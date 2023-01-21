@@ -1,10 +1,7 @@
 package test_flow;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import io.qameta.allure.Step;
 import models.components.login.LoginFormComponent;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -35,8 +32,14 @@ public class LoginFlow extends BaseFlow {
         boolean isValidEmail = EmailValidator.getInstance().isValid(username);
         boolean isValidPassword = password.length() >= 8;
 
-        if (isValidEmail && isValidPassword)
+        if (!isValidEmail && !isValidPassword) {
+            verifyIncorrectEmail(loginFormComp);
+            verifyIncorrectPassword(loginFormComp);
+        }
+
+        if (isValidEmail && isValidPassword) {
             verifyCorrectLoginCreds(loginFormComp);
+        }
 
         if (!isValidEmail)
             verifyIncorrectEmail(loginFormComp);
@@ -51,6 +54,7 @@ public class LoginFlow extends BaseFlow {
         String actual = loginFormComp.getLoginSuccessfullyTextSel();
         String expected = "Success";
         Assert.assertEquals(actual, expected, "[ERR] Invalid login success str: not match");
+        loginFormComp.okBtnElem();
     }
 
     @Step("Verify login with incorrect email")

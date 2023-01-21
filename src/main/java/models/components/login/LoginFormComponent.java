@@ -12,14 +12,32 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-import static io.appium.java_client.MobileBy.AccessibilityId;
-
 public class LoginFormComponent {
 
     private final AppiumDriver<MobileElement> appiumDriver;
-    private final By usernameSel = AccessibilityId("input-email");
-    private final By passwordSel = AccessibilityId("input-password");
-    private final By loginBtnSel = AccessibilityId("button-LOGIN");
+    private final By usernameSel = MobileBy.AccessibilityId("input-email");
+    private final By passwordSel = MobileBy.AccessibilityId("input-password");
+    private final By loginBtnSel = MobileBy.AccessibilityId("button-LOGIN");
+
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Please enter a valid email address')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Please enter a valid email address\"")
+    private MobileElement incorrectEmailTextSel;
+
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Please enter at least 8 characters')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Please enter at least 8 characters\"")
+    private MobileElement incorrectPasswordTextSel;
+
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Success')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Success\"")
+    private MobileElement loginSuccessfullyTextSel;
+
+    @AndroidFindBy(xpath = "//*[contains(@text, 'OK')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"OK\"")
+    private MobileElement loginSuccessElemSel;
+
+    @AndroidFindBy(xpath = "//*[contains(@text, 'Login / Sign up Form')]")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Login / Sign up Form\"")
+    private MobileElement removeKeyboard;
 
     public LoginFormComponent(AppiumDriver<MobileElement> appiumDriver) {
         this.appiumDriver = appiumDriver;
@@ -34,18 +52,6 @@ public class LoginFormComponent {
             usernameElem.sendKeys(usernameText);
         }
     }
-
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Please enter a valid email address')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Please enter a valid email address\"")
-    private MobileElement incorrectEmailTextSel;
-
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Please enter at least 8 characters')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Please enter at least 8 characters\"")
-    private MobileElement incorrectPasswordTextSel;
-
-    @AndroidFindBy(xpath = "//*[contains(@text, 'Success')]")
-    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Success\"")
-    private MobileElement loginSuccessfullyTextSel;
 
     public String getIncorrectEmailTextSel() {
         return incorrectEmailTextSel.getText().trim();
@@ -71,5 +77,10 @@ public class LoginFormComponent {
 
     public String getLoginSuccessfullyTextSel() {
         return loginSuccessfullyTextSel.getText();
+    }
+
+    public void okBtnElem() {
+        loginSuccessElemSel.click();
+        removeKeyboard.click();
     }
 }

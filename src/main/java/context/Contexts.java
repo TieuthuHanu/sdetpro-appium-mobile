@@ -2,6 +2,7 @@ package context;
 
 public interface Contexts {
 
-    final String WEB_VIEW = "WEBVIEW_com.wdiodemoapp";
-    final String NATIVE = "NATIVE_APP";
+    String WEB_VIEW_ANDROID = "WEBVIEW_com.wdiodemoapp";
+    String WEB_VIEW_IOS = "WEBVIEW_28659.3";
+    String NATIVE = "NATIVE_APP";
 }

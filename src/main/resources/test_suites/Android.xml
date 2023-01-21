@@ -6,15 +6,8 @@
         <parameter name="udid" value="emulator-5554"/>
         <parameter name="systemPort" value="8300"/>
         <classes>
-            <class name="remove_from_tests.parallel.LoginDevice01" />
-        </classes>
-    </test>
-    <test name="Authentication 02" >
-        <parameter name="platform" value="ANDROID"/>
-        <parameter name="udid" value="LMK500ZPZXWODEEYTC"/>
-        <parameter name="systemPort" value="8400"/>
-        <classes>
-            <class name="tests.FormTest" />
+            <class name="tests.FormsTest" />
+            <class name="tests.SwipeTest" />
         </classes>
     </test>
 </suite>

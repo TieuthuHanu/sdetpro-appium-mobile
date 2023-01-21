@@ -19,7 +19,7 @@ public class HybridContext {
 
     public static void main(String[] args) {
 
-        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
+        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.IOS);
 
         try {
             MobileElement navWebviewScreenBtn = appiumDriver.findElement(MobileBy.AccessibilityId("Webview"));
@@ -34,7 +34,7 @@ public class HybridContext {
             }
 
             // Switch to Webview
-            appiumDriver.context(Contexts.WEB_VIEW);
+            appiumDriver.context(Contexts.WEB_VIEW_IOS);
 
             // Interact with Webview elements
             WebElement navToggleBtnElem = appiumDriver.findElementByCssSelector(".navbar__toggle");

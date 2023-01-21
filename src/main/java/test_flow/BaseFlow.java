@@ -12,6 +12,10 @@ public class BaseFlow {
         this.appiumDriver = appiumDriver;
     }
 
+    public void goToHomeScreen() {
+        new BottomNavComponent(appiumDriver).clickOnHomeIconNav();
+    }
+
     public void goToLoginScreen() {
         new BottomNavComponent(appiumDriver).clickOnLoginIconNav();
     }
@@ -19,4 +23,13 @@ public class BaseFlow {
     public void goToFormsScreen() {
         new BottomNavComponent(appiumDriver).clickOnFormsIconNav();
     }
+
+    public void goToSwipeScreen() {
+        new BottomNavComponent(appiumDriver).clickOnSwipeIconNav();
+    }
+
+    public void goToWebviewScreen() {
+        new BottomNavComponent(appiumDriver).clickOnWebviewIconNav();
+    }
+
 }

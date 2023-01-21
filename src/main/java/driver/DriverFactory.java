@@ -17,11 +17,12 @@ public class DriverFactory implements MobileCapabilityTypeEx {
     public static AppiumDriver<MobileElement> getDriver(Platform platform) {
         AppiumDriver<MobileElement> appiumDriver = null;
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability(PLATFORM_NAME, "Android");
-        desiredCapabilities.setCapability(AUTOMATION_NAME, "uiautomator2");
-        desiredCapabilities.setCapability(UDID, "LMK500ZPZXWODEEYTC");
-        desiredCapabilities.setCapability(APP_PACKAGE, "com.wdiodemoapp");
-        desiredCapabilities.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
+        desiredCapabilities.setCapability(PLATFORM_NAME, "iOS");
+        desiredCapabilities.setCapability(PLATFORM_VERSION, "15.2");
+        desiredCapabilities.setCapability(AUTOMATION_NAME, "XCUITest");
+        desiredCapabilities.setCapability(DEVICE_NAME, "iPhone 12");
+        desiredCapabilities.setCapability(BUNDLE_ID, "org.wdioNativeDemoApp");
+//        desiredCapabilities.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
         URL appiumServer = null;
 
         try {
