@@ -1,1 +1,1 @@
-# sdetpro-appium-mobile
+# learn-appium-mobile
